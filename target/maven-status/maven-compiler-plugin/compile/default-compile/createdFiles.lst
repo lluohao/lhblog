@@ -1,5 +1,8 @@
 com/luohao/lhblog/web/controller/BlogController.class
 com/luohao/lhblog/web/vo/BasicVO.class
+com/luohao/lhblog/biz/dao/IBlogDao.class
 com/luohao/lhblog/web/vo/UpdateBlogVO.class
+com/luohao/lhblog/test/BlogDaoTest.class
 com/luohao/lhblog/web/request/UpdateBlogRequest.class
+com/luohao/lhblog/biz/domain/BlogDomain.class
 com/luohao/lhblog/entity/Blog.class

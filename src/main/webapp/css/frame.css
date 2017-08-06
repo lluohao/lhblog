@@ -79,6 +79,10 @@
 .btn-warning:hover{
 	background: #EF6E89;
 }
+.select{
+	width: 200px;
+	height: 45px;
+}
 /**
  *图标 
  */

@@ -1,4 +1,5 @@
 var testEditor;
+var blog = new Object();
 $(function() {
 	$.get('test.md', function(md) {
 		testEditor = editormd("test-editormd", {
@@ -97,20 +98,54 @@ $(function() {
 		testEditor.config("tocDropdown", false);
 	});
 
-	$("#update").click(function() {
+	$("#save").click(function() {
 		update();
 	});
 });
 
 function update(){
-	var md = testEditor.getMarkdown();
+	$("#save").text("保存中...");
+	$("#save").attr("disabled","disabled");
+	var md = encodeURIComponent(encodeURIComponent(testEditor.getMarkdown()));
+	console.log(testEditor.getMarkdown());
+	console.log(testEditor.getMarkdown().length);
+	console.log(md.length);
+	var html = encodeURIComponent(encodeURIComponent(testEditor.getHTML()));
+	var title = $("#title").val();
+	var type = $("#type").val();
+	if(isNaN(type)){
+		info("请输入正确分类");
+		$("#save").removeAttr("disabled");
+		$("#save").text("保存");
+		return
+	}
+	var data = new Object();
+	data.md = testEditor.getMarkdown();
+	data.html = testEditor.getHTML();
+	data.title = title;
+	data.type = type;
+	if(blog.id==undefined){
+		data.oper = "add";
+	}else{
+		data.oper = "update";
+		data.id = blog.id;
+	}
+	console.log(JSON.stringify(data));
 	$.ajax({
 		type:"post",
 		url:"update.do",
+		dataType:"json",
+		contentType: "application/json; charset=utf-8",
 		async:true,
-		data:"md="+md,
+		data:JSON.stringify(data),
 		success:function(e){
-			console.log(e);
+			$("#save").removeAttr("disabled");
+			$("#save").text("保存");
+			if(e.code==200){
+				blog.id = e.blogId;
+			}
+			info(e.message);
 		}
 	});
 }
+

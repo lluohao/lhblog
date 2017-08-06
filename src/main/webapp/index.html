@@ -6,15 +6,43 @@
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/editormd.css" /> 
         <link rel="stylesheet" href="css/frame.css" />
-        <link rel="stylesheet" href="css/font-awesome.css" />>
+        <link rel="stylesheet" href="css/font-awesome.css" />
     </head>
     <body>
+    		<div id="bloglist" class="editormd-dialog editormd-dialog-info">
+    			<div class="line">
+    				<div class="editormd-dialog-header">
+    					<span>导入文章</span>
+    				</div>
+    				<div style="text-align: center;">
+    					<table id="bloglist-table">
+    						<tr>
+    							<td>ID</td>
+    							<td>标题</td>
+    							<td>分类</td>
+    							<td>状态</td>
+    							<td>导入</td>
+    						</tr>
+    						<tr>
+    							<td>4</td>
+    							<td>测试</td>
+    							<td>分类</td>
+    							<td>状态</td>
+    							<td>导入</td>
+    						</tr>
+    					</table>
+    				</div>
+    			</div>
+    			<div class="editormd-dialog-footer"  style="text-align: center;">
+    				<button class="btn btn-warning" onclick="$('#bloglist').fadeOut()">取消</button>
+    			</div>
+    		</div>
         <div id="layout">
         		<div id="left-menu">
         			<div class="menu-item">
         				<span class="icon-edit"></span>
         				<span >文章撰写</span>
-        			</div>
+        			</div> 
         		</div>
         		<div id="content">
         			<div>
@@ -35,11 +63,11 @@
         				<button class="btn btn-warning" id="delete">删除</button>
         			</div>
         		</div>
-            
         </div>
         <script src="js/jquery-2.1.0.js"></script>
         <script src="js/editormd.js"></script>   
         <script type="text/javascript" src="js/blog.js" ></script>
         <script type="text/javascript" src="js/toast.js" ></script>
+        <script type="text/javascript" src="js/frame.js" ></script>
     </body>
 </html>

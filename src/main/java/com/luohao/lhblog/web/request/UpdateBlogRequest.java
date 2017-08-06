@@ -4,18 +4,37 @@ package com.luohao.lhblog.web.request;
  * Created by luohao on 2017/8/5.
  */
 public class UpdateBlogRequest {
-    private int id;
-    private String titile;
+    private String oper; //操作类型， 可选add，update
+    private Integer id;
+    private String title;
     private String md;
     private String html;
-    private String desc;
+    private String desc; //留用
+    private Integer type;
+    private Integer status;
 
-    public int getId() {
+    public String getOper() {
+        return oper;
+    }
+
+    public void setOper(String oper) {
+        this.oper = oper;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public String getTitile() {
-        return titile;
+    public String getTitle() {
+        return title;
     }
 
     public String getMd() {
@@ -30,12 +49,12 @@ public class UpdateBlogRequest {
         return desc;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
-    public void setTitile(String titile) {
-        this.titile = titile;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setMd(String md) {
@@ -48,5 +67,13 @@ public class UpdateBlogRequest {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

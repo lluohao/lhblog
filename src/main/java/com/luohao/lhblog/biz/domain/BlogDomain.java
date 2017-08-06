@@ -3,30 +3,46 @@ package com.luohao.lhblog.biz.domain;
 import java.sql.Timestamp;
 
 /**
- * Created by llhao on 2017/8/5.
+ * Created by ll=uohao on 2017/8/5.
+ * 对应数据库blog表
  */
 public class BlogDomain {
-    private int id;
-    private String md;
-    private String html;
-    private Timestamp time;
-    private int count;
-    private String title;
-    private int type;
 
-    public int getType() {
+    private Integer id;         //主键id
+    private String md;      //md源码
+    private String html;    //html源码
+    private Timestamp time; //创建时间
+    private Integer count;      //访问量
+    private String title;   //标题
+    private Integer type;       //分类，将指向一个Typedef类，但是数据库中并没有添加对应的外键约束
+    private Integer status;     //状态 0:草稿 32:公开 64:私密 128:垃圾箱
+
+    public static final Integer STATUS_DRAFT = 0;
+    public static final Integer STATUS_PUBLIC = 32;
+    public static final Integer STATUS_PRIVATE = 64;
+    public static final Integer STATUS_DELETE = 128;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Integer getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -54,11 +70,11 @@ public class BlogDomain {
         this.time = time;
     }
 
-    public int getCount() {
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 

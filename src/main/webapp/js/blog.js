@@ -3,7 +3,7 @@ $(function() {
 	$.get('test.md', function(md) {
 		testEditor = editormd("test-editormd", {
 			width: "90%",
-			height: 740,
+			height:"80%",
 			path: 'lib/',
 			markdown: md,
 			codeFold: true,

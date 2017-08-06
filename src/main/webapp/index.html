@@ -4,37 +4,32 @@
         <meta charset="utf-8" />
         <title>Full example - Editor.md examples</title>
         <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="css/editormd.css" />   
+        <link rel="stylesheet" href="css/editormd.css" /> 
+        <link rel="stylesheet" href="css/frame.css" />
     </head>
     <body>
         <div id="layout">
-            <header>
-                <h1>完整示例</h1>
-                <p>Full example</p>
-                <ul style="margin: 10px 0 0 18px;">
-                    <li>Enable HTML tags decode</li>
-                    <li>Enable TeX, Flowchart, Sequence Diagram, Emoji, FontAwesome, Task lists</li>
-                    <li>Enable Image upload</li>
-                    <li>Enable [TOCM], Search Replace, Code fold</li>
-                </ul>            
-            </header>
-            <div class="btns">
-                <button id="goto-line-btn">Goto line 90</button>
-                <button id="show-btn">Show editor</button>
-                <button id="hide-btn">Hide editor</button>
-                <button id="get-md-btn">Get Markdown</button>
-                <button id="get-html-btn">Get HTML</button>
-                <button id="watch-btn">Watch</button>
-                <button id="unwatch-btn">Unwatch</button>
-                <button id="preview-btn">Preview HTML (Press Shift + ESC cancel)</button>
-                <button id="fullscreen-btn">Fullscreen (Press ESC cancel)</button>
-                <button id="show-toolbar-btn">Show toolbar</button>
-                <button id="close-toolbar-btn">Hide toolbar</button>
-                <button id="toc-menu-btn">ToC Dropdown menu</button>
-                <button id="toc-default-btn">ToC default</button>
-                <button id="update">update</button>
-            </div>
-            <div id="test-editormd"></div>
+        		<div id="left-menu">
+        			<div class="menu-item">
+        				<span class="icon-edit"> </span>
+        				<span >文章撰写</span>
+        			</div>
+        		</div>
+        		<div id="content">
+        			<div>
+        				<div class="line">
+        					<input id="title" type="text" class="input" placeholder="标题" />
+        					<input id="type" type="text" class="input" placeholder="分类" />
+        				</div>
+        			</div>
+        			<div id="test-editormd"></div>
+        			<div class="line">
+        				<button class="btn btn-success" id="publish">发布</button>
+        				<button class="btn btn-primary" id="save">保存</button>
+        				<button class="btn btn-warning" id="delete">删除</button>
+        			</div>
+        		</div>
+            
         </div>
         <script src="js/jquery-2.1.0.js"></script>
         <script src="js/editormd.js"></script>   

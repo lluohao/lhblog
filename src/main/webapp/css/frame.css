@@ -1,0 +1,88 @@
+#left-menu{
+	width: 15%;
+	height: 100%;
+	overflow: hidden;
+	background: #334455;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	color: #FFF;
+}
+
+.menu-item{
+	height: 40px;
+	line-height: 40px;
+	margin: 0px;
+	padding: 0px;
+	padding-left: 30px;
+	cursor: pointer;
+}
+.menu-item:hover{
+	background: #334444;
+}
+
+#content{
+	float: right;
+	width: 85%;
+	height: 100%;
+}
+#layout{
+	height: 100%;
+}
+
+.line{
+	padding: 10px 20px;
+}
+
+.input{
+	height: 35px;
+	border-radius: 4px;
+	border: 1px solid #999;
+	padding: 0px 10px;
+	font-size: 16px;
+}
+
+.input:focus{
+	border: 1px solid #007BFF;
+	box-shadow: 0px 0px 3px 0px #007BFF;
+}
+
+.btn{
+	width: 100px;
+	height: 40px;
+	border: 0px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 15px;
+}
+.btn-primary{
+	background: #3A8DE7;
+	color: #FFF;
+}
+.btn-primary:hover{
+	background: #63A9F5;
+}
+.btn-success{
+	background: #26BA81;
+	color: #FFF;
+}
+.btn-success:hover{
+	background: #42CC97;
+}
+.btn-warning{
+	background: #E14868;
+	color: #FFF;
+}
+.btn-warning:hover{
+	background: #EF6E89;
+}
+/**
+ *图标 
+ */
+.icon-edit{
+	background: url(../img/edit_128px_1188039_easyicon.net.png);
+	background-size: 100% 100%;
+	width: 15px;
+	height: 15px;
+	display: inline-block;
+}

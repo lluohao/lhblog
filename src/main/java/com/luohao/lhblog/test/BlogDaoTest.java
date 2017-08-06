@@ -19,7 +19,6 @@ public class BlogDaoTest {
         blogDomain.setTime(new Timestamp(System.currentTimeMillis()));
         blogDomain.setTitle("Test");
         blogDomain.setType(0);
-        System.out.println("----测试push-----");
         dao.add(blogDomain);
     }
 }

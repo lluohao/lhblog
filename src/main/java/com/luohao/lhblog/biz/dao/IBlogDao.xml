@@ -10,4 +10,7 @@
     <select id="find" parameterType="int" resultType="BlogDomain">
         SELECT * FROM blog WHERE id = #{id}
     </select>
+    <select id="simpleBlogs" parameterType="PageQuerier" resultType="BlogDomain" >
+        SELECT id, title, time, count, type, status  FROM blog LIMIT #{from},#{count}
+    </select>
 </mapper>

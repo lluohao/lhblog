@@ -8,5 +8,8 @@ com/luohao/lhblog/test/BlogDaoTest.class
 com/luohao/lhblog/web/request/UpdateBlogRequest.class
 com/luohao/lhblog/biz/domain/BlogDomain.class
 com/luohao/lhblog/entity/Blog.class
+com/luohao/lhblog/biz/que/PageQuerier.class
 com/luohao/lhblog/common/util/StringUtils.class
+com/luohao/lhblog/web/vo/BlogListVO.class
 com/luohao/lhblog/biz/service/IBlogService.class
+com/luohao/lhblog/web/vo/BlogVO.class

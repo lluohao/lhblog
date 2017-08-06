@@ -4,7 +4,7 @@ $(function() {
 	$.get('test.md', function(md) {
 		testEditor = editormd("test-editormd", {
 			width: "90%",
-			height:"80%",
+			height: "80%",
 			path: 'lib/',
 			markdown: md,
 			codeFold: true,
@@ -98,22 +98,36 @@ $(function() {
 		testEditor.config("tocDropdown", false);
 	});
 
+	$("#loadblog").click(function() {
+		$.ajax({
+			type:"get",
+			url:"list.do?t="+Math.floor(Math.random()*10000000),
+			async:true,
+			success:function(e){
+				$("#bloglist").css("display","block");
+				 var app = new Vue({
+					el: '#bloglist',
+					data: {
+						blogs:e.blogs
+					}
+				});
+				toCenter("#bloglist");
+			}
+		});
+	})
 	$("#save").click(function() {
 		update();
 	});
 });
 
-function update(){
+function update() {
 	$("#save").text("保存中...");
-	$("#save").attr("disabled","disabled");
+	$("#save").attr("disabled", "disabled");
 	var md = encodeURIComponent(encodeURIComponent(testEditor.getMarkdown()));
-	console.log(testEditor.getMarkdown());
-	console.log(testEditor.getMarkdown().length);
-	console.log(md.length);
 	var html = encodeURIComponent(encodeURIComponent(testEditor.getHTML()));
 	var title = $("#title").val();
 	var type = $("#type").val();
-	if(isNaN(type)){
+	if(isNaN(type)) {
 		info("请输入正确分类");
 		$("#save").removeAttr("disabled");
 		$("#save").text("保存");
@@ -124,28 +138,26 @@ function update(){
 	data.html = testEditor.getHTML();
 	data.title = title;
 	data.type = type;
-	if(blog.id==undefined){
+	if(blog.id == undefined) {
 		data.oper = "add";
-	}else{
+	} else {
 		data.oper = "update";
 		data.id = blog.id;
 	}
-	console.log(JSON.stringify(data));
 	$.ajax({
-		type:"post",
-		url:"update.do",
-		dataType:"json",
+		type: "post",
+		url: "update.do",
+		dataType: "json",
 		contentType: "application/json; charset=utf-8",
-		async:true,
-		data:JSON.stringify(data),
-		success:function(e){
+		async: true,
+		data: JSON.stringify(data),
+		success: function(e) {
 			$("#save").removeAttr("disabled");
 			$("#save").text("保存");
-			if(e.code==200){
+			if(e.code == 200) {
 				blog.id = e.blogId;
 			}
 			info(e.message);
 		}
 	});
 }
-

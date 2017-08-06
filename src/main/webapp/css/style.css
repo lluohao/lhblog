@@ -13,7 +13,7 @@ html,body {
 #bloglist{
 	width: 600px;
 	min-height: 500px;
-	display: block;
+	display: none;
 	margin: auto;
 }
 #bloglist-table{

@@ -13,6 +13,7 @@
     			<div class="line">
     				<div class="editormd-dialog-header">
     					<span>导入文章</span>
+    					<a onclick="$('#bloglist').fadeOut()" class="fa fa-close editormd-dialog-close" style="right: 20px;text-decoration: none;cursor: pointer;"></a>
     				</div>
     				<div style="text-align: center;">
     					<table id="bloglist-table">
@@ -23,12 +24,14 @@
     							<td>状态</td>
     							<td>导入</td>
     						</tr>
-    						<tr>
-    							<td>4</td>
-    							<td>测试</td>
-    							<td>分类</td>
-    							<td>状态</td>
-    							<td>导入</td>
+    						<tr v-for="blog in blogs">
+    							<td>{{ blog.id }}</td>
+    							<td>{{ blog.title }}</td>
+    							<td>{{ blog.type }}</td>
+    							<td>{{ blog.status }}</td>
+    							<td>
+    								<a href="javascript:info({{ blog.id }})">导入</a>
+    							</td>
     						</tr>
     					</table>
     				</div>
@@ -53,7 +56,7 @@
         						<option >技术</option>
         						<option >心情</option>
         					</datalist>
-        					<button class="btn btn-primary">加载文章</button>
+        					<button id="loadblog" class="btn btn-primary">加载文章</button>
         				</div>
         			</div>
         			<div id="test-editormd"></div>
@@ -69,5 +72,6 @@
         <script type="text/javascript" src="js/blog.js" ></script>
         <script type="text/javascript" src="js/toast.js" ></script>
         <script type="text/javascript" src="js/frame.js" ></script>
+        <script src="js/vue.js"></script>
     </body>
 </html>

@@ -10,3 +10,19 @@ html,body {
 #title{
 	width: 500px;
 }
+#bloglist{
+	width: 600px;
+	min-height: 500px;
+	display: none;
+	margin: auto;
+}
+#bloglist-table{
+	width: 550px;
+	text-align: center;
+}
+#bloglist-table tr{
+	height: 35px;
+}
+#bloglist-table td{
+	width: 20%;
+}

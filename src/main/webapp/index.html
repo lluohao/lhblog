@@ -53,8 +53,9 @@
         					<input id="title" type="text" class="input" placeholder="标题" />
         					<input id="type" type="text" class="input" placeholder="分类" list="typelist" />
         					<datalist id="typelist">
-        						<option >技术</option>
-        						<option >心情</option>
+        						<option v-for="type in types">
+        							{{type.tname}}
+        						</option>
         					</datalist>
         					<button id="loadblog" class="btn btn-primary">加载文章</button>
         				</div>

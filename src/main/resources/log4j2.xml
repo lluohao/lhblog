@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- log4j2相关的配置文件 -->
+<lhblog>
+    <appenders>
+        <RollingRandomAccessFile name="fileLog" fileName="log.txt" filePattern="%d{yyyy-MM-dd}-log.txt">
+            <TimeBasedTriggeringPolicy interval="1" />
+        </RollingRandomAccessFile>
+    </appenders>
+    <loggers>
+        <root level="ALL">
+            <appender-ref ref="fileLog" />
+        </root>
+    </loggers>
+</lhblog>

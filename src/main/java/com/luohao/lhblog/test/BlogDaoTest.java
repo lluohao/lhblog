@@ -1,24 +1,23 @@
 package com.luohao.lhblog.test;
 
-import com.luohao.lhblog.biz.dao.IBlogDao;
-import com.luohao.lhblog.biz.domain.BlogDomain;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import java.sql.Timestamp;
+import java.io.IOException;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * Created by llhao on 2017/8/5.
  */
 public class BlogDaoTest {
-    public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        IBlogDao dao = (IBlogDao)context.getBean("blogDao");
-        BlogDomain blogDomain = new BlogDomain();
-        blogDomain.setMd("md");
-        blogDomain.setHtml("<p>md</p>");
-        blogDomain.setTime(new Timestamp(System.currentTimeMillis()));
-        blogDomain.setTitle("Test");
-        blogDomain.setType(0);
-        dao.add(blogDomain);
+    private static Logger logger = LogManager.getLogger("test3");
+
+    public static void main(String[] args) throws IOException {
+        logger.error("Did it again!");   //error级别的信息，参数就是你输出的信息
+        logger.info("我是info信息");    //info级别的信息
+        logger.debug("我是debug信息");
+        logger.warn("我是warn信息");
+        logger.fatal("我是fatal信息");
+        logger.log(Level.DEBUG, "我是debug信息");   //这个就是制定Level类型的调用：谁闲着没事调用这个，也不一定哦！
     }
 }
+

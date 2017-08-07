@@ -26,3 +26,7 @@ html,body {
 #bloglist-table td{
 	width: 20%;
 }
+#typelist option{
+	height: 40px;
+	line-height: 40px;
+}

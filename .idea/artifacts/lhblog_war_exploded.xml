@@ -31,6 +31,8 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.8.8" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" />
           <element id="library" level="project" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.3" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.3" />
         </element>
       </element>
       <element id="directory" name="META-INF">

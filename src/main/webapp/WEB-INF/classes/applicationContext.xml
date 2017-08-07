@@ -24,5 +24,8 @@
         <property name="mapperInterface" value="com.luohao.lhblog.biz.dao.IBlogDao" />
         <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
-
+    <bean id="typedefDao" class="org.mybatis.spring.mapper.MapperFactoryBean" >
+        <property name="mapperInterface" value="com.luohao.lhblog.biz.dao.ITypedefDao" />
+        <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
 </beans>

@@ -1,6 +1,8 @@
 var testEditor;
 var blog = new Object();
+var types;
 $(function() {
+	loadBlogType();
 	$.get('test.md', function(md) {
 		testEditor = editormd("test-editormd", {
 			width: "90%",
@@ -100,15 +102,15 @@ $(function() {
 
 	$("#loadblog").click(function() {
 		$.ajax({
-			type:"get",
-			url:"list.do?t="+Math.floor(Math.random()*10000000),
-			async:true,
-			success:function(e){
-				$("#bloglist").css("display","block");
-				 var app = new Vue({
+			type: "get",
+			url: "list.do?t=" + Math.floor(Math.random() * 10000000),
+			async: true,
+			success: function(e) {
+				$("#bloglist").css("display", "block");
+				var app = new Vue({
 					el: '#bloglist',
 					data: {
-						blogs:e.blogs
+						blogs: e.blogs
 					}
 				});
 				toCenter("#bloglist");
@@ -120,13 +122,37 @@ $(function() {
 	});
 });
 
+function checkType(type){
+	for (var i = 0; i<types.length; i++) {
+		if(types[i].tname==type){
+			return types[i].tid;
+		}
+	}
+	var e = $.ajax({
+		type:"get",
+		url:"/typedef/add.do?tname="+type,
+		async:false
+	});
+	e = e.responseText;
+	e = eval("("+e+")");
+	if(e.code==200){
+		info("类型"+type+"不存在，已自动添加！");
+		var newType = new Object();
+		newType.tname = type;
+		newType.tid = e.tid;
+		types[types.length] = newType;
+		return e.tid;
+	}
+}
+
 function update() {
+	var type = $("#type").val();
+	type = checkType(type);
 	$("#save").text("保存中...");
 	$("#save").attr("disabled", "disabled");
 	var md = encodeURIComponent(encodeURIComponent(testEditor.getMarkdown()));
 	var html = encodeURIComponent(encodeURIComponent(testEditor.getHTML()));
 	var title = $("#title").val();
-	var type = $("#type").val();
 	if(isNaN(type)) {
 		info("请输入正确分类");
 		$("#save").removeAttr("disabled");
@@ -158,6 +184,23 @@ function update() {
 				blog.id = e.blogId;
 			}
 			info(e.message);
+		}
+	});
+}
+
+function loadBlogType() {
+	$.ajax({
+		type: "get",
+		url: "/typedef/all.do?t=" + new Date(),
+		async: true,
+		success: function(e) {
+			types = e.types;
+			var app = new Vue({
+				el: '#typelist',
+				data: {
+					types: e.types
+				}
+			});
 		}
 	});
 }

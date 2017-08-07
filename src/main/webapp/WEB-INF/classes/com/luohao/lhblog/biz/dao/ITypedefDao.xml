@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.luohao.lhblog.biz.dao.ITypedefDao">
+    <select id="allTypedef" resultType="TypedefDomain" >
+        SELECT * FROM typedef;
+    </select>
+
+    <insert id="add" parameterType="TypedefDomain" useGeneratedKeys="true" keyColumn="tid" keyProperty="tid">
+        INSERT INTO typedef VALUES (NULL , #{tname})
+    </insert>
+
+    <select id="findByName" parameterType="String" resultType="TypedefDomain" >
+        SELECT * FROM typedef WHERE `tname` = #{tname}
+    </select>
+
+    <select id="findById" parameterType="int" resultType="TypedefDomain" >
+        SELECT * FROM typedef WHERE `tid` = #{tid}
+    </select>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM typedef WHERE `tid` = #{tid}
+    </delete>
+
+    <update id="update" parameterType="TypedefDomain" >
+        UPDATE typedef SET `tname` = #{tname} WHERE `tid` = #{tid}
+    </update>
+</mapper>

@@ -1,6 +1,6 @@
 var testEditor;
 var blog = new Object();
-var types;
+var types = [];
 $(function() {
 	loadBlogType();
 	$.get('test.md', function(md) {
@@ -130,7 +130,7 @@ function checkType(type){
 	}
 	var e = $.ajax({
 		type:"get",
-		url:"/typedef/add.do?tname="+type,
+		url:"/renju/typedef/add.do?tname="+type,
 		async:false
 	});
 	e = e.responseText;
@@ -146,8 +146,8 @@ function checkType(type){
 }
 
 function update() {
-	var type = $("#type").val();
-	type = checkType(type);
+	var type = "1";//$("#type").val();
+	//type = checkType(type);
 	$("#save").text("保存中...");
 	$("#save").attr("disabled", "disabled");
 	var md = encodeURIComponent(encodeURIComponent(testEditor.getMarkdown()));
@@ -191,7 +191,7 @@ function update() {
 function loadBlogType() {
 	$.ajax({
 		type: "get",
-		url: "/typedef/all.do?t=" + new Date(),
+		url: "/renju/typedef/all.do?t=" + new Date(),
 		async: true,
 		success: function(e) {
 			types = e.types;

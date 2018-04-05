@@ -8,10 +8,10 @@
   `type` int(11) NOT NULL,
   `status` int(11) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `typedef` (
   `tid` int(11) NOT NULL AUTO_INCREMENT,
   `tname` varchar(20) NOT NULL UNIQUE,
   PRIMARY KEY(tid)
-) ENGING=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

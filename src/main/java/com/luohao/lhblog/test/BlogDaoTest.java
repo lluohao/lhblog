@@ -1,6 +1,8 @@
 package com.luohao.lhblog.test;
 
 import java.io.IOException;
+import java.sql.DriverManager;
+
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,7 +12,6 @@ import org.apache.logging.log4j.Logger;
  */
 public class BlogDaoTest {
     private static Logger logger = LogManager.getLogger("test3");
-
     public static void main(String[] args) throws IOException {
         logger.error("Did it again!");   //error级别的信息，参数就是你输出的信息
         logger.info("我是info信息");    //info级别的信息
